@@ -1,0 +1,6 @@
+{
+  "api": "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=",
+  "title": "Cocktails",
+  "subtitle": "The finest selection of cocktails definetly not seen anywhere else!",
+  "theHorrifyingTruth": "lies"
+}
