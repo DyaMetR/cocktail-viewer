@@ -3,3 +3,17 @@
   background-color: #242424;
   color: white;
 }
+
+.body {
+  margin: 1rem;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  width: 40rem;
+  height: 25rem;
+}

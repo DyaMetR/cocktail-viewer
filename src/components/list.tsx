@@ -1,4 +1,6 @@
+import { MouseEvent } from 'react'
 import Card from './card'
+import settings from '../../settings.json'
 import '../styles/list.css'
 
 export type Cocktail = {
@@ -55,13 +57,22 @@ export type Cocktail = {
   dateModified: string;
 };
 
-type ListProps = { drinks: Cocktail[] };
+export type FavouriteEventHandler = (event: MouseEvent<HTMLDivElement>, drink: string) => void;
+export type SelectionEventHandler = (event: MouseEvent<HTMLDivElement>, idDrink: string) => void;
+
+type ListProps = {
+  drinks: Cocktail[];
+  favourites: Record<string, boolean>;
+  favouritesHandler: FavouriteEventHandler;
+  selectionHandler: SelectionEventHandler;
+};
 
 /**
  * Displays a sortable list of cocktails.
  */
-const List = ({ drinks }: ListProps) => {
-  return (<div className='list'>{drinks ? drinks.map((drink) => (<Card key={drink.idDrink} cocktail={drink} favourite={false}/>)) : <h1>No matching drinks found.</h1>}</div>)
+const List = ({ drinks, favourites, favouritesHandler }: ListProps) => {
+  return (
+    <div className='list'>{drinks ? drinks.map((drink) => (<Card key={drink.idDrink} cocktail={drink} favourite={favourites[drink.idDrink]} onClick={favouritesHandler}/>)) : <h1>{settings.notFound}</h1>}</div>)
 };
 
 export default List;

@@ -1,5 +1,5 @@
 .list {
-  margin: 1rem;
+  margin-top: 1rem;
 }
 
 .card {
@@ -17,11 +17,29 @@
   cursor: pointer;
 }
 
-.img-preview {
+.card h1 {
+  font-size: 250%;
+  margin: 0;
+  margin-bottom: .3rem;
+}
+
+.card span {
+  font-size: 120%;
+}
+
+.photo {
   float: left;
-  border: solid #4f5e7a;
+  border: solid #2b364d;
+  border-width: 1px;
   margin: 1rem;
   height: 8rem;
+}
+
+.details {
+  padding-left: 11rem;
+  padding-top: 1.3rem;
+  padding-bottom: .5rem;
+  padding-right: 5rem;
 }
 
 .favourite {
@@ -35,23 +53,5 @@
 }
 
 .favourited:hover {
-  filter: grayscale(1) brightness(200%);
-}
-
-
-.card h1 {
-  font-size: 250%;
-  margin: 0;
-  margin-bottom: .3rem;
-}
-
-.card span {
-  font-size: 120%;
-}
-
-.details {
-  padding-left: 11rem;
-  padding-top: 1.3rem;
-  padding-bottom: .5rem;
-  padding-right: 5rem;
+  filter: brightness(0) invert();
 }

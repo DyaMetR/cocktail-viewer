@@ -2,5 +2,10 @@
   "api": "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=",
   "title": "Cocktails",
   "subtitle": "The finest selection of cocktails definetly not seen anywhere else!",
-  "theHorrifyingTruth": "lies"
+  "theHorrifyingTruth": "lies",
+  "notFound": "No matching drinks found.",
+  "searchPlaceholder": "Search...",
+  "favourite": "Add to favourites",
+  "unfavourite": "Remove from favourites",
+  "sort": "Order by favourites"
 }
