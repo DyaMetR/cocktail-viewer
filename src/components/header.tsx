@@ -1,9 +1,9 @@
 import '../styles/header.css'
 
 type HeaderProps = {
-  title: string,
-  subtitle: string,
-  tooltip: string
+  title: string;
+  subtitle: string;
+  tooltip: string;
 }
 
 /**

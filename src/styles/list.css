@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.preview {
+.img-preview {
   float: left;
   border: solid #4f5e7a;
   margin: 1rem;
@@ -30,10 +30,14 @@
   margin: 4rem;
 }
 
-.favourite:hover {
-  filter:brightness(0);
+.unfavourited:hover {
   filter:invert();
 }
+
+.favourited:hover {
+  filter: grayscale(1) brightness(200%);
+}
+
 
 .card h1 {
   font-size: 250%;

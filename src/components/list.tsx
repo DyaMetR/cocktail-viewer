@@ -61,7 +61,7 @@ type ListProps = { drinks: Cocktail[] };
  * Displays a sortable list of cocktails.
  */
 const List = ({ drinks }: ListProps) => {
-  return (<div className='list'>{drinks.map((drink) => (<Card cocktail={drink}/>))}</div>)
+  return (<div className='list'>{drinks ? drinks.map((drink) => (<Card key={drink.idDrink} cocktail={drink} favourite={false}/>)) : <h1>No matching drinks found.</h1>}</div>)
 };
 
 export default List;

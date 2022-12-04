@@ -1,14 +1,15 @@
+import { ChangeEventHandler } from 'react';
 import '../styles/header.css'
 
 type SearchProps = {
-  search: React.Dispatch<React.SetStateAction<string>>
+  handler: ChangeEventHandler<HTMLInputElement>;
 }
 
 /**
  * Displays a search bar which changes the search parameter of the application.
  */
-const Search = () => {
-  return (<div></div>)
+const Search = ({handler}: SearchProps) => {
+  return (<input className='search-bar' type='text' onChange={handler}/>)
 }
 
 export default Search;
