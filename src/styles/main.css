@@ -8,12 +8,9 @@
   margin: 1rem;
 }
 
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  width: 40rem;
-  height: 25rem;
+.photo {
+  float: left;
+  border: solid #2b364d;
+  border-width: 1px;
+  height: 8rem;
 }

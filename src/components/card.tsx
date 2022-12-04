@@ -1,4 +1,4 @@
-import { Cocktail, FavouriteEventHandler } from './list'
+import { Cocktail, FavouriteEventHandler, SelectionEventHandler } from './list'
 import settings from '../../settings.json'
 import favouritedHeart from '../assets/favourite.png'
 import notFavouritedHeart from '../assets/neutral.png'
@@ -7,21 +7,22 @@ import '../styles/list.css'
 type CardProps = {
   cocktail: Cocktail;
   favourite: boolean;
-  onClick: FavouriteEventHandler;
+  favouriteHandler: FavouriteEventHandler;
+	onClick: SelectionEventHandler;
 }
 
 /**
  * Contains the information of a cocktail and allows it to be favourited.
  */
-const Card = ({ cocktail, favourite, onClick }: CardProps) => {
+const Card = ({ cocktail, favourite, favouriteHandler, onClick }: CardProps) => {
   return (
-    <div className='card'>
+    <div className='card' onClick={event => onClick(event, cocktail.idDrink)}>
       <img className='photo' src={cocktail.strDrinkThumb}/>
-      <img 
-        className={'favourite ' + (favourite ? 'favourited' : 'unfavourited')} 
+      <img
+        className={'favourite ' + (favourite ? 'favourited' : 'unfavourited')}
         src={favourite ? favouritedHeart : notFavouritedHeart}
-        title={favourite ? settings.unfavourite : settings.favourite}
-        onClick={event => onClick(event, cocktail.idDrink)}
+        title={favourite ? settings.unfavouriteTooltip : settings.favouriteTooltip}
+        onClick={event => favouriteHandler(event, cocktail.idDrink)}
         />
       <div className='details'>
         <h1>{cocktail.strDrink}</h1>

@@ -30,10 +30,11 @@ const App = () => {
 
   /**
    * Handles the favourite button click event.
-   * @param event 
+   * @param event
    * @param drink id of the drink to toggle the favourite property on
    */
   const handleFavourites = (event: MouseEvent<HTMLDivElement>, drink: string) => {
+    event.stopPropagation();
     favourites[drink] = !favourites[drink];
     setFavourites(favourites);
   }
@@ -46,10 +47,12 @@ const App = () => {
 
   /**
    * Handles the selection event click.
-   * @param event 
+   * @param event
    * @param drink id of the drink to select
    */
-  const handleSelection = (event: MouseEvent<HTMLDivElement>, idDrink: string) => setSelected(drinks.filter(drink => drink.idDrink == idDrink)[0]);
+  const handleSelection = (event: MouseEvent<HTMLDivElement>, idDrink: string|null) => setSelected(idDrink ? drinks.filter(drink => drink.idDrink == idDrink)[0] : null);
+  
+  // TODO: have a separate handler to close the modal instead of allowing nullables in the selection handler
 
   // fetch drinks before rendering
   useEffect(() => {
@@ -63,10 +66,10 @@ const App = () => {
       <Header title={settings.title} subtitle={settings.subtitle} tooltip={settings.theHorrifyingTruth}/>
       <div className='body'>
         <Search handler={handleSearch}/>
-        <CheckBox label={settings.sort} handler={handleSort}/>
+        <CheckBox label={settings.sortLabel} handler={handleSort}/>
         <List drinks={drinks} favourites={favourites} favouritesHandler={handleFavourites} selectionHandler={handleSelection}/>
       </div>
-      {selected ? <Modal cocktail={null}/> : null}
+      {selected ? <Modal cocktail={selected} handler={handleSelection}/> : null}
     </div>
   )
 }

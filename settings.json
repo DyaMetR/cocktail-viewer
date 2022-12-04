@@ -3,9 +3,12 @@
   "title": "Cocktails",
   "subtitle": "The finest selection of cocktails definetly not seen anywhere else!",
   "theHorrifyingTruth": "lies",
-  "notFound": "No matching drinks found.",
+	"drinkListNotFound": "No matching drinks found.",
   "searchPlaceholder": "Search...",
-  "favourite": "Add to favourites",
-  "unfavourite": "Remove from favourites",
-  "sort": "Order by favourites"
+  "favouriteTooltip": "Add to favourites",
+  "unfavouriteTooltip": "Remove from favourites",
+  "sortLabel": "Order by favourites",
+	"modalGlass": "Served in: ",
+	"modalIngredients": "Ingredients: ",
+	"modalInstructions": "Instructions: "
 }
