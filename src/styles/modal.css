@@ -1,5 +1,5 @@
-.modal-background {
-	position: fixed;
+.overlay {
+  position: fixed;
   top: 0;
   left: 0;
 	width: 100%;
@@ -7,27 +7,7 @@
 	background-color: rgba(0, 0, 0, .66);
 }
 
-.modal-header {
-  padding-top: .6rem;
-  margin-left: 10rem;
-}
-
-.modal-header h1 {
-  font-size: 260%;
-  margin: 0;
-}
-
-.modal-category {
-	font-style: italic;
-  font-size: 120%;
-  margin-bottom: 1rem;
-}
-
-.modal-glass {
-  margin-bottom: 1.5rem;
-}
-
-.modal-body {
+.modal {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -35,10 +15,25 @@
   background-color: #3d4a63;
   border-radius: .4rem;
   padding: 1rem;
+  padding-right: 2rem;
 }
 
-.modal-cross {
-	font-size: 130%;
-	float: right;
-	margin: 1rem;
+.modal .header {
+  padding-top: .6rem;
+  margin-left: 10rem;
+}
+
+.modal .header h1 {
+  font-size: 260%;
+  margin: 0;
+}
+
+.modal .category {
+	font-style: italic;
+  font-size: 120%;
+  margin-bottom: 1rem;
+}
+
+.modal .glass {
+  margin-bottom: 1.5rem;
 }

@@ -16,9 +16,9 @@ const App = () => {
 
   /**
    * Sorts the given cocktails based on whether they're favourited.
-   * @param a one cocktail
+   * @param a a cocktail
    * @param b another cocktail
-   * @returns sort
+   * @returns sort order
    */
   const sort = (a: Cocktail, b: Cocktail): number => {
     const aDrink = Boolean(favourites[a.idDrink]);
@@ -54,11 +54,17 @@ const App = () => {
    * @param event
    * @param drink id of the drink to select
    */
-  const handleSelection = (event: MouseEvent<HTMLDivElement>, idDrink: string|null) => setSelected(idDrink ? drinks.filter(drink => drink.idDrink == idDrink)[0] : null);
+  const handleSelection = (event: MouseEvent<HTMLDivElement>, idDrink: string|null) => setSelected(drinks.filter(drink => drink.idDrink == idDrink)[0]);
   
-  // TODO: have a separate handler to close the modal instead of allowing nullables in the selection handler
+  /**
+   * Handles the selection removal (and thus, closing the modal).
+   * @param event
+   */
+  const handleCloseModal = (event: MouseEvent<HTMLDivElement>) => setSelected(null);
 
-  // fetch drinks before rendering
+  /**
+   * Fetch drinks before rendering.
+   */
   useEffect(() => {
     fetch(settings.api + search)
       .then((response) => response.json())
@@ -67,13 +73,11 @@ const App = () => {
 
   return (
     <div>
-      <Header title={settings.title} subtitle={settings.subtitle} tooltip={settings.theHorrifyingTruth}/>
-      <div className='body'>
-        <Search handler={handleSearch}/>
-        <CheckBox label={settings.sortLabel} handler={handleSort}/>
-        <List drinks={drinks} favourites={favourites} favouritesHandler={handleFavourites} selectionHandler={handleSelection}/>
-      </div>
-      {selected ? <Modal cocktail={selected} handler={handleSelection}/> : null}
+      <Header title={settings.title} subtitle={settings.subtitle} secret={settings.theHorrifyingTruth}/>
+      <Search handler={handleSearch}/>
+      <CheckBox label={settings.sortLabel} onChange={handleSort}/>
+      <List drinks={drinks} favourites={favourites} favHandler={handleFavourites} onClick={handleSelection}/>
+      {selected ? <Modal cocktail={selected} onClick={handleCloseModal}/> : null}
     </div>
   )
 }

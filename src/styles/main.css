@@ -4,7 +4,7 @@
   color: white;
 }
 
-.body {
+body {
   margin: 1rem;
 }
 
@@ -13,4 +13,8 @@
   border: solid #2b364d;
   border-width: 1px;
   height: 8rem;
+}
+
+.list {
+  margin-top: 1rem;
 }

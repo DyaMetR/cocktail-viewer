@@ -1,7 +1,3 @@
-.list {
-  margin-top: 1rem;
-}
-
 .card {
   background-color:#3d4a63;
   color: white;
@@ -28,22 +24,22 @@
   font-size: 120%;
 }
 
-.details {
+.card .details {
   padding-left: 10rem;
   padding-top: .3rem;
   padding-right: 4rem;
 }
 
-.favourite {
+.card .favourite {
   float: right;
   height: 3rem;
   margin: 2.5rem;
 }
 
-.unfavourited:hover {
+.card .unfavourited:hover {
   filter:invert();
 }
 
-.favourited:hover {
+.card .favourited:hover {
   filter: brightness(0) invert();
 }

@@ -1,25 +1,26 @@
-import { Cocktail, SelectionEventHandler } from './list'
+import { MouseEventHandler } from 'react';
+import { Cocktail } from './list'
 import settings from '../../settings.json'
 import '../styles/modal.css'
 
 type ModalProps = {
 	cocktail: Cocktail;
-	handler: SelectionEventHandler;
+	onClick: MouseEventHandler<HTMLDivElement>;
 }
 
 /**
  * Displays a modal with the details of a cocktail.
  */
- const Modal = ({ cocktail, handler }: ModalProps) => {
+ const Modal = ({ cocktail, onClick }: ModalProps) => {
   return (
-    <div className='modal-background' title={settings.modalCloseTooltip} onClick={event => handler(event, null)}>
-			<div className='modal-body'>
+    <div className='overlay' title={settings.modalCloseTooltip} onClick={onClick}>
+			<div className='modal'>
 				<div>
 					<img className='photo' src={cocktail.strDrinkThumb}/>
-					<div className='modal-header'>
+					<div className='header'>
 						<h1>{cocktail.strDrink}</h1>
-						<div className='modal-category'>{cocktail.strCategory}</div>
-						<div className='modal-glass'><b>{settings.modalGlass}</b>{cocktail.strGlass}</div>
+						<div className='category'>{cocktail.strCategory}</div>
+						<div className='glass'><b>{settings.modalGlass}</b>{cocktail.strGlass}</div>
 					</div>
 				</div>
 				<div>
