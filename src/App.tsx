@@ -20,7 +20,11 @@ const App = () => {
    * @param b another cocktail
    * @returns sort
    */
-  const sort = (a: Cocktail, b: Cocktail): number => favourites[a.idDrink] == favourites[b.idDrink] ? 0 : (favourites[a.idDrink] ? -1 : 1);
+  const sort = (a: Cocktail, b: Cocktail): number => {
+    const aDrink = Boolean(favourites[a.idDrink]);
+    const bDrink = Boolean(favourites[b.idDrink]);
+    return aDrink == bDrink ? 0 : (aDrink ? -1 : 1);
+  }
 
   /**
    * Handles the search bar change event.
