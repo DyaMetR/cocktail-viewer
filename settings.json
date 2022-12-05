@@ -10,5 +10,7 @@
   "sortLabel": "Order by favourites",
 	"modalGlass": "Served in: ",
 	"modalIngredients": "Ingredients: ",
-	"modalInstructions": "Instructions: "
+	"modalInstructions": "Instructions: ",
+  "modalCloseTooltip": "Click anywhere to close",
+  "modalOpenTooltip": "Click to see details"
 }

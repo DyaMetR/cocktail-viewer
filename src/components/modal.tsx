@@ -12,7 +12,7 @@ type ModalProps = {
  */
  const Modal = ({ cocktail, handler }: ModalProps) => {
   return (
-    <div className='modal-background' onClick={event => handler(event, null)}>
+    <div className='modal-background' title={settings.modalCloseTooltip} onClick={event => handler(event, null)}>
 			<div className='modal-body'>
 				<div>
 					<img className='photo' src={cocktail.strDrinkThumb}/>

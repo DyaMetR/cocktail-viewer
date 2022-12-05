@@ -16,7 +16,7 @@ type CardProps = {
  */
 const Card = ({ cocktail, favourite, favouriteHandler, onClick }: CardProps) => {
   return (
-    <div className='card' onClick={event => onClick(event, cocktail.idDrink)}>
+    <div className='card' title={settings.modalOpenTooltip} onClick={event => onClick(event, cocktail.idDrink)}>
       <img className='photo' src={cocktail.strDrinkThumb}/>
       <img
         className={'favourite ' + (favourite ? 'favourited' : 'unfavourited')}
