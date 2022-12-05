@@ -74,7 +74,7 @@ const App = () => {
   return (
     <div>
       <Header title={settings.title} subtitle={settings.subtitle} secret={settings.theHorrifyingTruth}/>
-      <Search handler={handleSearch}/>
+      <Search onChange={handleSearch}/>
       <CheckBox label={settings.sortLabel} onChange={handleSort}/>
       <List drinks={drinks} favourites={favourites} favHandler={handleFavourites} onClick={handleSelection}/>
       {selected ? <Modal cocktail={selected} onClick={handleCloseModal}/> : null}

@@ -3,14 +3,14 @@ import settings from '../../settings.json'
 import '../styles/header.css'
 
 type SearchProps = {
-  handler: ChangeEventHandler<HTMLInputElement>;
+  onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
 /**
  * Displays a search bar which changes the search parameter of the application.
  */
-const Search = ({handler}: SearchProps) => {
-  return (<input className='search-bar' type='text' onChange={handler} placeholder={settings.searchPlaceholder}/>)
+const Search = ({onChange}: SearchProps) => {
+  return (<input className='search-bar' type='text' onChange={onChange} placeholder={settings.searchPlaceholder}/>)
 }
 
 export default Search;
