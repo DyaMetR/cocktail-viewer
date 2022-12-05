@@ -13,6 +13,23 @@ const App = () => {
   const [favourites, setFavourites] = useState<Record<string, boolean>>({});
   const [sorted, setSorted] = useState<boolean>(false);
   const [selected, setSelected] = useState<Cocktail|null>(null);
+  const [error, setError] = useState<boolean>(false);
+
+  /**
+   * Fetches all available drinks from the API.
+   * @returns cocktail list
+   */
+  const fetchDrinks = async () => {
+    const response = await fetch(settings.api + search);
+    setError(!response.ok);
+
+    if (response.ok) {
+      const contents = await response.json();
+      setDrinks(sorted ? contents.drinks.sort(sort) : contents.drinks);
+    } else {
+      setDrinks([]);
+    }
+  }
 
   /**
    * Sorts the given cocktails based on whether they're favourited.
@@ -65,18 +82,14 @@ const App = () => {
   /**
    * Fetch drinks before rendering.
    */
-  useEffect(() => {
-    fetch(settings.api + search)
-      .then((response) => response.json())
-      .then((list) => setDrinks(sorted ? list.drinks.sort(sort) : list.drinks));
-  });
+  useEffect(() => { fetchDrinks().catch(console.error) });
 
   return (
     <div>
       <Header title={settings.title} subtitle={settings.subtitle} secret={settings.theHorrifyingTruth}/>
       <Search onChange={handleSearch}/>
       <CheckBox label={settings.sortLabel} onChange={handleSort}/>
-      <List drinks={drinks} favourites={favourites} favHandler={handleFavourites} onClick={handleSelection}/>
+      <List error={error} drinks={drinks} favourites={favourites} favHandler={handleFavourites} onClick={handleSelection}/>
       {selected ? <Modal cocktail={selected} onClick={handleCloseModal}/> : null}
     </div>
   )

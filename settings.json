@@ -4,6 +4,7 @@
   "subtitle": "The finest selection of cocktails definetly not seen anywhere else!",
   "theHorrifyingTruth": "lies",
 	"drinkListNotFound": "No matching drinks found.",
+  "drinkListError": "There was an error attempting to contact the drinks' database.",
   "searchPlaceholder": "Search...",
   "favouriteTooltip": "Add to favourites",
   "unfavouriteTooltip": "Remove from favourites",

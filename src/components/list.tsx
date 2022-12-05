@@ -59,6 +59,7 @@ export type FavouriteEventHandler = (event: MouseEvent<HTMLDivElement>, drink: s
 export type SelectionEventHandler = (event: MouseEvent<HTMLDivElement>, idDrink: string|null) => void;
 
 type ListProps = {
+  error: boolean;
   drinks: Cocktail[];
   favourites: Record<string, boolean>;
   favHandler: FavouriteEventHandler;
@@ -68,12 +69,12 @@ type ListProps = {
 /**
  * Displays a sortable list of cocktails.
  */
-const List = ({ drinks, favourites, favHandler, onClick }: ListProps) => {
+const List = ({ error, drinks, favourites, favHandler, onClick }: ListProps) => {
   return (
     <div className='list'>
 			{drinks ?
 				drinks.map((drink) => (<Card key={drink.idDrink} cocktail={drink} favourited={favourites[drink.idDrink]} favHandler={favHandler} onClick={onClick}/>))
-				: <h1>{settings.drinkListNotFound}</h1>}
+				: <h1>{error ? settings.drinkListError : settings.drinkListNotFound}</h1>}
 		</div>)
 };
 
