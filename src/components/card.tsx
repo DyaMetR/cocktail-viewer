@@ -8,7 +8,7 @@ type CardProps = {
   cocktail: Cocktail;
   favourited: boolean;
   favHandler: FavouriteEventHandler;
-	onClick: SelectionEventHandler;
+  onClick: SelectionEventHandler;
 }
 
 /**

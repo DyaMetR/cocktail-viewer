@@ -72,10 +72,10 @@ type ListProps = {
 const List = ({ error, drinks, favourites, favHandler, onClick }: ListProps) => {
   return (
     <div className='list'>
-			{drinks ?
-				drinks.map((drink) => (<Card key={drink.idDrink} cocktail={drink} favourited={favourites[drink.idDrink]} favHandler={favHandler} onClick={onClick}/>))
-				: <h1>{error ? settings.drinkListError : settings.drinkListNotFound}</h1>}
-		</div>)
+      {drinks ?
+        drinks.map((drink) => (<Card key={drink.idDrink} cocktail={drink} favourited={favourites[drink.idDrink]} favHandler={favHandler} onClick={onClick}/>))
+        : <h1>{error ? settings.drinkListError : settings.drinkListNotFound}</h1>}
+    </div>)
 };
 
 export default List;
